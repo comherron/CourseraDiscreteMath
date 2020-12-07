@@ -1,4 +1,3 @@
-
 def makeGrid(size):
     ''' Takes an int Size that will be the size of a grid filled with -1
     returns the grid which is a double array'''
