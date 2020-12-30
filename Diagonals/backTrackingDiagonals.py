@@ -138,12 +138,13 @@ assert extend_possible(test_grid,6,2,1,1) ==False,"Problem with slash 2 fourth i
 test_grid = [[0,0,0],[-1,-1,-1],[-1,-1,-1]]
 assert extend_possible(test_grid,6,0,0,1) == False,"problem with slash 0 else case if"
 
-def extend_helper(grid,n,x,y):
+def extend_helper(ngrid,n,x,y):
     '''Extend_helper
     Input: grid a int double array
     n the number of diagonals we want in the grid
     x the current x position in the array
     y the current y position in the array '''
+    grid = [i[:] for i in ngrid]
     #debugging purposes
     if False:
         for i in grid:
@@ -169,7 +170,7 @@ def extend_helper(grid,n,x,y):
             extend_helper(grid,n,0,y+1)
         else:
             extend_helper(grid,n,x+1,y)
-        resetGrid(grid,x,y)
+        #resetGrid(grid,x,y)
     if extend_possible(grid,n,2,x,y):
         #print("EXTEND 1")
         grid[y][x] = 2
@@ -177,7 +178,7 @@ def extend_helper(grid,n,x,y):
             extend_helper(grid,n,0,y+1)
         else:
             extend_helper(grid,n,x+1,y)
-        resetGrid(grid,x,y)
+        #resetGrid(grid,x,y)
     if extend_possible(grid,n,0,x,y):
         #print("EXTEND 1")
         grid[y][x] = 0
@@ -185,7 +186,7 @@ def extend_helper(grid,n,x,y):
             extend_helper(grid,n,0,y+1)
         else:
             extend_helper(grid,n,x+1,y)
-        resetGrid(grid,x,y)
+        #resetGrid(grid,x,y)
 
 
 def extend(grid,n):
